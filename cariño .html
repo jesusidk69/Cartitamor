@@ -1,0 +1,168 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para mi mujer 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffe6f0, #ffd6ec);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .envelope {
+      width: 90%;
+      max-width: 360px;
+      height: 220px;
+      background: #ff80ab;
+      position: relative;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 1s;
+      transform: scaleY(1);
+    }
+    .envelope.open {
+      transform: scaleY(0);
+    }
+    .open-text {
+      color: white;
+      font-size: 20px;
+      text-align: center;
+      padding: 20px;
+    }
+    .card {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      width: 90%;
+      max-width: 380px;
+      padding: 25px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .card.active {
+      display: flex;
+    }
+    h2 {
+      color: #ff4081;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 16px;
+      color: #444;
+      line-height: 1.6;
+    }
+    .nav-btn, .yt-btn {
+      margin-top: 20px;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .nav-btn:hover, .yt-btn:hover {
+      background-color: #e73370;
+    }
+    .heart {
+      font-size: 24px;
+      animation: heartbeat 1s infinite;
+      margin-top: 15px;
+    }
+    .photo {
+      margin-top: 20px;
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ENVELOPE -->
+<div class="envelope" id="envelope" onclick="openCard()">
+  <div class="open-text">💌 abre tu carta❤️</div>
+</div>
+
+<!-- CARD -->
+<div class="card" id="card">
+
+  <!-- Página 1 -->
+  <div class="page active" id="page1">
+    <h2>Mi niña 💖</h2>
+    <p>Han pasado aproximadamente tres meses desde que nos comenzamos a enamorar  aún me cuesta creer lo afortunado que soy de tenerte como mi novia.</p>
+    <p>Antes éramos mejores amigos, cómplices de risas, de secretos y de momentos simples que ahora se sienten mágicos y maravillos pero desde que te tengo como pareja todo cambió Para mejor Para siempre.</p>
+    <button class="nav-btn" onclick="showPage(2)">Siguiente 💌</button>
+  </div>
+
+  <!-- Página 2 -->
+  <div class="page" id="page2" style="display: none;">
+    <h2>Tu esencia  ✨</h2>
+    <p>Es increíble como alguien puede hacerte sentir tanto con solo una mirada Tus ojitos color miel que tanto amo brillan como si llevaran  pedacitos de sol dentro Y tus labios que parecen hechos de cereza son mi tentación favorita y el lugar donde encuentro paz cada vez que te beso.</p>
+    <p> adoro poder llegar y llenarte de abrazos y mucho amor</p>
+    <button class="nav-btn" onclick="showPage(1)">Volver ⬅️</button>
+    <button class="nav-btn" onclick="showPage(3)">Siguiente ➡️</button>
+  </div>
+
+  <!-- Página 3 -->
+  <div class="page" id="page3" style="display: none;">
+    <h2>Gracias por existir ❤️</h2>
+    <p>No hay día que no agradezca por haberte encontrado Por poder llamarte mi mujer por compartir contigo esta historia que apenas comienza pero que ya se siente eterna y lo sera.</p>
+    <p> esto apenas es el comienzo de una historia  muy hermosa</p>
+    <p>Te amo más de lo que las palabras pueden decir pero igual lo intento todos los días te amo demasiado mi güerita hermosa mi enanita</p>
+    
+    
+    <p> con amor tu negrito </p>
+    <p class="heart">❤️</p>
+
+    <!-- Botón YouTube al final -->
+    <a class="yt-btn" href="https://youtu.be/GDRjC-OQsLQ?si=1ztkqHG9Fxwx5mAW" target="_blank" rel="noopener noreferrer">
+      🎵 Tu cancion
+    </a>
+
+    <button class="nav-btn" onclick="showPage(2)">Volver ⬅️</button>
+  </div>
+</div>
+
+<script>
+  function openCard() {
+    document.getElementById('envelope').classList.add('open');
+    setTimeout(() => {
+      document.getElementById('envelope').style.display = 'none';
+      document.getElementById('card').classList.add('active');
+    }, 1000);
+  }
+
+  function showPage(pageNumber) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.style.display = 'none');
+    document.getElementById('page' + pageNumber).style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
